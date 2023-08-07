@@ -1,0 +1,12 @@
+.button-controls{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    justify-content: center;
+} 
+button{
+    font: inherit;
+    padding: 1rem 2rem;
+    border: 1px solid rgb(19, 15, 15);
+    border-radius: 12px;
+}
