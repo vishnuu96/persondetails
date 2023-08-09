@@ -7,7 +7,7 @@ const PersonDisplay = (props) => {
   return (
     <div className='person-box__container'>
         {props.people.map((person)=>{
-           return  <PersonItem key={person.id}>{`${person.username}(${person.age} )`}</PersonItem>
+           return  <PersonItem key={person.id}>{`${person.username}(${person.age} years old)`}</PersonItem>
         })}
     </div>
   )

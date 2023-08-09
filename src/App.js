@@ -2,46 +2,49 @@ import React,{useState} from "react";
 // import "./styles/UserInput.css";
 import UserBox from "./components/UserBox";
 import PersonDisplay from "./components/PersonDisplay";
-import ErrorModel from "./components/ErrorModel";
+// import ErrorModel from "./components/ErrorModel";
+import ErrorModelWrapper from "./components/ErrorModelWrapper";
 // import "./styles/Button.css";
 
 
 function App() {
  const [personArray, setPersonArray] = useState([])
- const [isValid, setIsValid] = useState(true)
+ const [error, setError] = useState()
 
  const addPersonHandler=(savedPersondata)=>{
   if((savedPersondata.username.trim().length===0)||(savedPersondata.age.trim().length===0)){
-    setIsValid(false)
+    setError({
+      title:'invalid input',
+      message:'please enetr a valid name and age'
+    })
+  }else 
+  if(savedPersondata.age<1){
+    setError({
+      title:'invalid age',
+      message:'please enter a valid age'
+    })
   }
   else{
+    
     setPersonArray(prevArray=>{
         const updatedArray=[savedPersondata,...prevArray]
          return updatedArray
     })
-    setIsValid(true)
- 
-    // setContent(<PersonDisplay people={personArray}/>)
+    
   }
-
-    // const [content, setContent]=useState(<PersonDisplay people={personArray}/>)
-
-    // if(!isUsernameValid){
-    //   setContent=(<ErrorModel title='error'>username is required</ErrorModel>)}
-    // if(!isAgeValid){
-    //   setContent=(<ErrorModel title='error'>username is required</ErrorModel>)
-    // }
  }
-//  const [content, setContent]= useState(<PersonDisplay people={personArray}/>
-// let content=''
-//  if(!isValid){
-//    content=(<ErrorModel title='error'>username is required</ErrorModel>)}
+
+ const errorHandler=()=>{
+  setError(null)
+ }
+
   return (
     <div className="App">
       
-    <UserBox onAddPerson={addPersonHandler}/>
-   {isValid && <PersonDisplay people={personArray}/>}
-    {!isValid && <ErrorModel title='error'>username is required</ErrorModel>}
+      <UserBox onAddPerson={addPersonHandler}/>
+      {<ErrorModelWrapper error={error} onConfirm={errorHandler}/>}
+      {<PersonDisplay people={personArray}/>}
+
     </div>
   );
 }
