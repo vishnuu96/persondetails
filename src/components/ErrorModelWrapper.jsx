@@ -3,9 +3,6 @@ import ErrorModel from './ErrorModel'
 import '../styles/ErrorMOdelWrapper.css'
 
 const ErrorModelWrapper = (props) => {
-    // const onClose=()=>{
-    //     props.setIsValid(true)
-    //    }
   return (
     <div>
      {props.error && <div className="overlay" onClick={props.onConfirm}/>}
