@@ -8,8 +8,7 @@ const ErrorModelWrapper = (props) => {
     //    }
   return (
     <div>
-         {/* {props.isValid && <PersonDisplay people={personArray}/>} */}
-     {props.error && <div className="overlay" onConfirm={props.onConfirm}/>}
+     {props.error && <div className="overlay" onClick={props.onConfirm}/>}
     {props.error && <ErrorModel title={props.error.title} onClose={props.onClose} message={props.error.message} onConfirm={props.onConfirm}/>}
     </div>
   )
