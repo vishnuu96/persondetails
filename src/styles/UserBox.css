@@ -1,13 +1,10 @@
 .user-box {
-    /* margin-top: 3rem;
-    display: flex;
-    flex-direction: column; */
     background-color: rgb(144, 118, 154);
     display: flex;
     padding: 2rem;
     margin:3rem auto;
-    width: 50rem;
-    max-width: 95%;
+    width: 39vw;
+    max-width:100%;
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0,0,0,0.25);
     justify-content: center;
